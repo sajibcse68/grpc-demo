@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package example;
+
+import "google/api/annotations.proto";
+
+service DemoService {
+  rpc Intro(IntroRequest) returns (IntroResponse) {
+    option (google.api.http) = {
+      get: "/apis/demo/intro/json"
+    };
+  }
+}
+
+message IntroRequest {
+  string name = 1;
+}
+
+message IntroResponse {
+  string message = 1;
+}
